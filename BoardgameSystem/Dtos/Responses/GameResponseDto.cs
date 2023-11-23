@@ -13,7 +13,7 @@ namespace BoardgameSystem.Dtos.Responses
         public Developer Developer { get; set; }
         public Artist Artist { get; set; }
         public Publisher Publisher { get; set; }
-        public List<Expansion> Expansions { get; set; }
+        //public List<Expansion> Expansions { get; set; }
 
     }
 }

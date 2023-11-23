@@ -17,7 +17,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 builder.Services.AddDbContext<BaseDbContext>(opt =>
 {
-    opt.UseSqlServer(builder.Configuration.GetConnectionString("GamesDB"));
+    opt.UseSqlServer(builder.Configuration.GetConnectionString("SqlConnection"));
 });
 
 

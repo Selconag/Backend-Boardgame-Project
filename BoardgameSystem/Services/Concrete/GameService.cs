@@ -32,9 +32,11 @@ public class GameService : IGameService
         //Map values of coming request from Service Layer
         Game game = _mapper.Map<Game>(gameRequestDto);
 
+
+
+
         //GameResponseDto gameResponseDto = _mapper.Map<GameResponseDto>(game);
 
-        //Implement TRY - CATCH
         //Check for already existence
         try
         {
@@ -142,32 +144,42 @@ public class GameService : IGameService
 
     public ReturnModel<List<GameResponseDto>> GetList()
     {
-        try
+        var list = _gameRepository.GetAll();
+        List<GameResponseDto> response = _mapper.Map<List<GameResponseDto>>(list);
+
+        return new ReturnModel<List<GameResponseDto>>()
         {
-            List<Game> games = _gameRepository.GetAll();
+            Data = response,
+            Message = "Oyuncular listelendi",
+            StatusCode = System.Net.HttpStatusCode.OK
+        };
 
-            var response = _mapper.Map<List<GameResponseDto>>(games);
+        //try
+        //{
+        //    List<Game> games = _gameRepository.GetAll();
 
-            return new ReturnModel<List<GameResponseDto>>()
-            {
-                Data = response,
-                Message = $"All fields fetched",
-                StatusCode = System.Net.HttpStatusCode.Found
-            };
+        //    var response = _mapper.Map<List<GameResponseDto>>(games);
 
-        }
-        catch (NotFoundException ex)
-        {
-            {
-                return new ReturnModel<List<GameResponseDto>>()
-                {
-                    Data = null,
-                    Message = $"Something went wrong",
-                    StatusCode = System.Net.HttpStatusCode.NotFound
-                };
+        //    return new ReturnModel<List<GameResponseDto>>()
+        //    {
+        //        Data = response,
+        //        Message = $"All fields fetched",
+        //        StatusCode = System.Net.HttpStatusCode.Found
+        //    };
 
-            }
-        }
+        //}
+        //catch (NotFoundException ex)
+        //{
+        //    {
+        //        return new ReturnModel<List<GameResponseDto>>()
+        //        {
+        //            Data = null,
+        //            Message = $"Something went wrong",
+        //            StatusCode = System.Net.HttpStatusCode.NotFound
+        //        };
+
+        //    }
+        //}
     }
 
     public ReturnModel<GameResponseDto> Update(UpdateGameRequestDto gameRequestDto)

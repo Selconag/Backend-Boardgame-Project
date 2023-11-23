@@ -9,9 +9,9 @@ namespace BoardgameSystem.Repositories.Configuration
         public void Configure(EntityTypeBuilder<Developer> builder)
         {
             builder.ToTable("Developers").HasKey(d => d.Id);
-            builder.Property(d => d.Id).HasColumnName("developer_id");
-            builder.Property(d => d.Name).HasColumnName("developer_name");
-            builder.Property(d => d.GamesDeveloped).HasColumnName("developer_gamesdeveloped");
+            builder.Property(d => d.Id).HasColumnName("DeveloperID");
+            builder.Property(d => d.Name).HasColumnName("Name");
+            //builder.Property(d => d.GamesDeveloped).HasColumnName("developer_gamesdeveloped");
 
         }
     }

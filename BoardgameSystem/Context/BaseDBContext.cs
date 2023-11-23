@@ -17,6 +17,11 @@ public class BaseDbContext : DbContext
         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
     }
 
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=GamesDB;Trusted_Connection=True;MultipleActiveResultSets=true");
+    }
+
     public DbSet<Game> Games { get; set; }
     public DbSet<Developer> Developers { get; set; }
 
