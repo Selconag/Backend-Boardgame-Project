@@ -9,9 +9,9 @@ public class UpdateGameRequestDto
     public int AveragePlayTime { get; set; }
     public int PlayerCountMin { get; set; }
     public int PlayerCountMax { get; set; }
-    public int Price { get; set; }
+    public decimal Price { get; set; }
 
-    public int DeveloperName { get; set; }
-    public int ArtistName { get; set; }
-    public int PublisherName { get; set; }
+    public int DeveloperID { get; set; }
+    public int ArtistID { get; set; }
+    public int PublisherID { get; set; }
 }

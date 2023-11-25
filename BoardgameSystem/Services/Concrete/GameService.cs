@@ -31,11 +31,20 @@ public class GameService : IGameService
     {
         //Map values of coming request from Service Layer
         Game game = _mapper.Map<Game>(gameRequestDto);
+        game.Id = _gameRepository.GetAll().Count + 1; //What is this
+        _gameRepository.Add(game);
 
+        GameResponseDto gameResponseDto = _mapper.Map<GameResponseDto>(game);
 
+        ReturnModel<GameResponseDto> result = new ReturnModel<GameResponseDto>()
+        {
+            Data = gameResponseDto,
+            Message = "Ekleme islemi basarili",
+            StatusCode = System.Net.HttpStatusCode.Created
+        };
 
-
-        //GameResponseDto gameResponseDto = _mapper.Map<GameResponseDto>(game);
+        return result;
+        /*
 
         //Check for already existence
         try
@@ -78,6 +87,7 @@ public class GameService : IGameService
                 StatusCode = System.Net.HttpStatusCode.InternalServerError
             };
         }
+        */
     }
 
     public ReturnModel<GameResponseDto> Delete(int id)

@@ -16,9 +16,9 @@ namespace BoardgameSystem.Repositories.Configuration
             builder.Property(g => g.AveragePlayTime).HasColumnName("AveragePlaytime");
             builder.Property(g => g.Price).HasColumnName("Price");
 
-            builder.Property(g => g.DeveloperId).HasColumnName("DeveloperID");
-            builder.Property(g => g.ArtistId).HasColumnName("ArtistID");
-            builder.Property(g => g.PublisherId).HasColumnName("PublisherID");
+            builder.Property(d => d.DeveloperId).HasColumnName("DeveloperID");
+            builder.Property(a => a.ArtistId).HasColumnName("ArtistID");
+            builder.Property(p => p.PublisherId).HasColumnName("PublisherID");
             ////1)List<Expansion> tipinin yazımının özel bir yöntemi var mı?
             ////2)Tipi çektinten sonra başka ek işlem var mı? Çünkü 1 değil 1 den fazla olabiliyor.
             //builder.Property(g => g.ExpansionIds).HasColumnName("expansion_ids");
