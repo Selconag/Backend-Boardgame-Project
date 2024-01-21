@@ -36,20 +36,39 @@ public class GameRepository : IGameRepository
     //We can access all information using only games
     public List<Game> GetAll()
     {
-        return _context.Games
-            .Include(g=> g.Artist)
+        var returnType = _context.Games
+            .Include(g => g.Artist)
             .Include(g => g.Publisher)
             .Include(g => g.Developer)
             .ToList();
+
+        //Write a for each loop that does the same thing above
+        foreach (var item in returnType)
+        {
+            item.Artist = _context.Artists.Find(item.ArtistId);
+            item.Publisher = _context.Publishers.Find(item.PublisherId);
+            item.Developer = _context.Developers.Find(item.DeveloperId);
+        }
+        return returnType;
     }
 
     public Game GetById(int id)
     {
-        var game = _context.Games.Find(id);
+        //var game = _context.Games.Find(id);
+        var game = _context.Games.
+            Include(x => x.Artist).
+            Include(x => x.Publisher).
+            Include(x => x.Developer).SingleOrDefault(x => x.Id == id);
+
+        game.Artist = _context.Artists.Find(game.ArtistId);
+        game.Publisher = _context.Publishers.Find(game.PublisherId);
+        game.Developer = _context.Developers.Find(game.DeveloperId);
+
         if (game is null)
         {
             throw new NotFoundException(id);
         }
+
         return game;
     }
 

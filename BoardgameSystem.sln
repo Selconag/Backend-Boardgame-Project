@@ -3,7 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoardgameSystem", "BoardgameSystem\BoardgameSystem.csproj", "{836EED68-21BF-4696-A9C7-73F3DAD1B99D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BoardgameSystem", "BoardgameSystem\BoardgameSystem.csproj", "{836EED68-21BF-4696-A9C7-73F3DAD1B99D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.UnitTest", "unitTest\Service.UnitTest.csproj", "{7C0F4C3E-576F-44EB-8580-93269641D969}"
+	ProjectSection(ProjectDependencies) = postProject
+		{836EED68-21BF-4696-A9C7-73F3DAD1B99D} = {836EED68-21BF-4696-A9C7-73F3DAD1B99D}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projects", "Projects", "{AE9563EA-CB37-4BEF-A63D-3CE166B0B337}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core Packages", "Core Packages", "{81DF7CE2-F6E7-4807-8456-0E316471E8D3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit Tests", "Unit Tests", "{36EFC57D-BF6B-44A8-A3EE-257EE9DE0656}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exceptions", "Exceptions", "{D4DF0B76-653A-4961-A6F0-AA6B2675D3EB}"
+	ProjectSection(SolutionItems) = preProject
+		BusinessException.cs = BusinessException.cs
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +31,18 @@ Global
 		{836EED68-21BF-4696-A9C7-73F3DAD1B99D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{836EED68-21BF-4696-A9C7-73F3DAD1B99D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{836EED68-21BF-4696-A9C7-73F3DAD1B99D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C0F4C3E-576F-44EB-8580-93269641D969}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C0F4C3E-576F-44EB-8580-93269641D969}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C0F4C3E-576F-44EB-8580-93269641D969}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C0F4C3E-576F-44EB-8580-93269641D969}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{836EED68-21BF-4696-A9C7-73F3DAD1B99D} = {AE9563EA-CB37-4BEF-A63D-3CE166B0B337}
+		{7C0F4C3E-576F-44EB-8580-93269641D969} = {36EFC57D-BF6B-44A8-A3EE-257EE9DE0656}
+		{D4DF0B76-653A-4961-A6F0-AA6B2675D3EB} = {81DF7CE2-F6E7-4807-8456-0E316471E8D3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {42B3E060-725A-41D2-8A96-46A1AAACD1EA}

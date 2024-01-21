@@ -27,11 +27,11 @@ public class GameService : IGameService
         _mapper = mapper;      
     }
 
-    public ReturnModel<GameResponseDto> Add(CreateGameRequestDto gameRequestDto)
+    public ReturnModel<GameResponseDto> Add(AddGameRequestDto gameRequestDto)
     {
         //Map values of coming request from Service Layer
         Game game = _mapper.Map<Game>(gameRequestDto);
-        game.Id = _gameRepository.GetAll().Count + 1; //What is this
+        game.Id = _gameRepository.GetAll().Count + 1;
         _gameRepository.Add(game);
 
         GameResponseDto gameResponseDto = _mapper.Map<GameResponseDto>(game);
@@ -122,17 +122,20 @@ public class GameService : IGameService
 
     }
 
-    public ReturnModel<GameResponseDto> GetById(int id)
+    public ReturnModel<GetGameRequestDto> GetById(int id)
     {
         try
         {
             var game = _gameRepository.GetById(id);
+            //game.Artist = _gameRepository.GetArtistById(game.ArtistId);
 
             var response = _mapper.Map<GameResponseDto>(game);
 
-            return new ReturnModel<GameResponseDto>()
+            var newResponse = _mapper.Map<GetGameRequestDto>(response);
+
+            return new ReturnModel<GetGameRequestDto>()
             {
-                Data = response,
+                Data = newResponse,
                 Message = $"The given Id field is found ({id})",
                 StatusCode = System.Net.HttpStatusCode.Found
             };
@@ -141,7 +144,7 @@ public class GameService : IGameService
         catch (NotFoundException ex)
         {
             {
-                return new ReturnModel<GameResponseDto>()
+                return new ReturnModel<GetGameRequestDto>()
                 {
                     Data = null,
                     Message = $"The given Id field ({id}) does not exists",
@@ -152,44 +155,35 @@ public class GameService : IGameService
         }
     }
 
-    public ReturnModel<List<GameResponseDto>> GetList()
+    public ReturnModel<List<GetGameRequestDto>> GetList()
     {
-        var list = _gameRepository.GetAll();
-        List<GameResponseDto> response = _mapper.Map<List<GameResponseDto>>(list);
-
-        return new ReturnModel<List<GameResponseDto>>()
+        try
         {
-            Data = response,
-            Message = "Oyuncular listelendi",
-            StatusCode = System.Net.HttpStatusCode.OK
-        };
+            var games = _gameRepository.GetAll();
 
-        //try
-        //{
-        //    List<Game> games = _gameRepository.GetAll();
+            var response = _mapper.Map<List<GameResponseDto>>(games);
+            var newResponse = _mapper.Map < List<GetGameRequestDto>>(response);
 
-        //    var response = _mapper.Map<List<GameResponseDto>>(games);
+            return new ReturnModel<List<GetGameRequestDto>>()
+            {
+                Data = newResponse,
+                Message = $"All fields fetched",
+                StatusCode = System.Net.HttpStatusCode.Found
+            };
 
-        //    return new ReturnModel<List<GameResponseDto>>()
-        //    {
-        //        Data = response,
-        //        Message = $"All fields fetched",
-        //        StatusCode = System.Net.HttpStatusCode.Found
-        //    };
+        }
+        catch (NotFoundException ex)
+        {
+            {
+                return new ReturnModel<List<GetGameRequestDto>>()
+                {
+                    Data = null,
+                    Message = $"Something went wrong",
+                    StatusCode = System.Net.HttpStatusCode.NotFound
+                };
 
-        //}
-        //catch (NotFoundException ex)
-        //{
-        //    {
-        //        return new ReturnModel<List<GameResponseDto>>()
-        //        {
-        //            Data = null,
-        //            Message = $"Something went wrong",
-        //            StatusCode = System.Net.HttpStatusCode.NotFound
-        //        };
-
-        //    }
-        //}
+            }
+        }
     }
 
     public ReturnModel<GameResponseDto> Update(UpdateGameRequestDto gameRequestDto)

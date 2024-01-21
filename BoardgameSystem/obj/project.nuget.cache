@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6XjyuOZdH7jSudBV1WcEmSqdj6Ds7qzv2aexFiUeg/0Ea8tZvh1bTWpB5Ef2MdENdZPyv9gWwoU8iGY/SpXnAA==",
+  "dgSpecHash": "XKysqSVs77bhF/zta+uNuWqHnotpmZnHWxUFah3JOtdzvDNEuLCarYDw+hzI2rzyCTydB5Gv9mOROSD+Uc2+Gw==",
   "success": true,
-  "projectFilePath": "C:\\Unity\\BoardgameSystem\\BoardgameSystem\\BoardgameSystem.csproj",
+  "projectFilePath": "C:\\Repos\\BoardgameSystem\\BoardgameSystem\\BoardgameSystem.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Selcuk\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Selcuk\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

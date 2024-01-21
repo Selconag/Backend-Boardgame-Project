@@ -4,6 +4,8 @@ using BoardgameSystem.Services;
 using BoardgameSystem.Repositories;
 using BoardgameSystem.Services.Concrete;
 using BoardgameSystem.Dtos.Requests;
+using AutoMapper;
+using BoardgameSystem.Context;
 
 namespace BoardgameSystem.Controllers
 {
@@ -12,13 +14,23 @@ namespace BoardgameSystem.Controllers
     public class GameController : ControllerBase
     {
         private readonly GameService _gameService;
+        private readonly BaseDbContext _context;
+        private IMapper _mapper;
 
         public GameController(GameService gameService)
         {
             _gameService = gameService;
         }
+
+        //public GameController(BaseDbContext context, IMapper mapper)
+        //{
+        //    _context = context;
+        //    _mapper = mapper;
+        //}
+
+
         [HttpPost("add")]
-        public IActionResult Add([FromBody] CreateGameRequestDto requestDto)
+        public IActionResult Add([FromBody] AddGameRequestDto requestDto)
         {
             var response = _gameService.Add(requestDto);
             if (response.StatusCode == System.Net.HttpStatusCode.Created)

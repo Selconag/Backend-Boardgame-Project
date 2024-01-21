@@ -1,6 +1,7 @@
 using BoardgameSystem.Context;
 using BoardgameSystem.Repositories.Abstract;
 using BoardgameSystem.Repositories.Concrete;
+using BoardgameSystem.Services.Abstract;
 using BoardgameSystem.Services.Concrete;
 using Microsoft.EntityFrameworkCore;
 using System.Configuration;
@@ -22,6 +23,7 @@ builder.Services.AddDbContext<BaseDbContext>(opt =>
 
 
 builder.Services.AddScoped<IGameRepository, GameRepository>();
+//builder.Services.AddScoped<IGameService, GameService>();
 builder.Services.AddScoped<GameService>();
 
 

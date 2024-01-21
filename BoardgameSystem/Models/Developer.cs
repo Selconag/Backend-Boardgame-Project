@@ -6,5 +6,5 @@ public class Developer
     public string Name { get; set; }
 
     //public List<int> GamesDevelopedId { get; set; }
-    public List<Game> Games { get; set; }
+    //public List<Game> Games { get; set; }
 }

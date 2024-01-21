@@ -1,7 +1,7 @@
 ﻿namespace BoardgameSystem.Dtos.Requests;
 
 //To make a new Game Creation Request, we need to create a new DTO with variables below
-public class CreateGameRequestDto
+public class AddGameRequestDto
 {
     public string Name { get; set; }
     public int AveragePlayTime { get; set; }

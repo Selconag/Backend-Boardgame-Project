@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Unity\\BoardgameSystem\\BoardgameSystem\\BoardgameSystem.csproj": {}
+    "C:\\Repos\\BoardgameSystem\\BoardgameSystem\\BoardgameSystem.csproj": {}
   },
   "projects": {
-    "C:\\Unity\\BoardgameSystem\\BoardgameSystem\\BoardgameSystem.csproj": {
+    "C:\\Repos\\BoardgameSystem\\BoardgameSystem\\BoardgameSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Unity\\BoardgameSystem\\BoardgameSystem\\BoardgameSystem.csproj",
+        "projectUniqueName": "C:\\Repos\\BoardgameSystem\\BoardgameSystem\\BoardgameSystem.csproj",
         "projectName": "BoardgameSystem",
-        "projectPath": "C:\\Unity\\BoardgameSystem\\BoardgameSystem\\BoardgameSystem.csproj",
+        "projectPath": "C:\\Repos\\BoardgameSystem\\BoardgameSystem\\BoardgameSystem.csproj",
         "packagesPath": "C:\\Users\\Selcuk\\.nuget\\packages\\",
-        "outputPath": "C:\\Unity\\BoardgameSystem\\BoardgameSystem\\obj\\",
+        "outputPath": "C:\\Repos\\BoardgameSystem\\BoardgameSystem\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Selcuk\\AppData\\Roaming\\NuGet\\NuGet.Config",

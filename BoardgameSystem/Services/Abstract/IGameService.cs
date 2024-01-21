@@ -8,9 +8,9 @@ namespace BoardgameSystem.Services.Abstract;
 
 public interface IGameService
 {
-    ReturnModel<List<GameResponseDto>> GetList();
-    ReturnModel<GameResponseDto> GetById(int id);
-    ReturnModel<GameResponseDto> Add(CreateGameRequestDto gameRequestDto);
+    ReturnModel<List<GetGameRequestDto>> GetList();
+    ReturnModel<GetGameRequestDto> GetById(int id);
+    ReturnModel<GameResponseDto> Add(AddGameRequestDto gameRequestDto);
     ReturnModel<GameResponseDto> Update(UpdateGameRequestDto gameRequestDto);
     ReturnModel<GameResponseDto> Delete(int id);
 }

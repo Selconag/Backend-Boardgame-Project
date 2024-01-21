@@ -8,11 +8,17 @@ public class MappingProfiles : Profile
 {
     public MappingProfiles()
     {
-        CreateMap<CreateGameRequestDto, Game>();
+        CreateMap<AddGameRequestDto, Game>();
         CreateMap<UpdateGameRequestDto, Game>();
         CreateMap<Game, GameResponseDto>();
+
         CreateMap<Developer, DeveloperDto>();
         CreateMap<Artist, ArtistDto>();
         CreateMap<Publisher, PublisherDto>();
+
+        CreateMap<AddGameRequestDto, GetGameRequestDto>();
+        CreateMap<UpdateGameRequestDto, GetGameRequestDto>();
+        CreateMap<Game, GetGameRequestDto>();
+        CreateMap<GameResponseDto, GetGameRequestDto>();
     }
 }
