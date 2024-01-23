@@ -79,7 +79,11 @@ public class GameRepository : IGameRepository
         {
             throw new NotFoundException(game.Id);
         }
-        _context.Games.Update(game);
+        game.Artist = _context.Artists.Find(game.ArtistId);
+        game.Publisher = _context.Publishers.Find(game.PublisherId);
+        game.Developer = _context.Developers.Find(game.DeveloperId);
+        gametoUpdate = game;
+        //_context.Games.Update(game);
         _context.SaveChanges();
     }
 }
